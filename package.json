@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "test": "snyk test && zUnit"
+    "test": "zUnit",
+    "test:snyk": "snyk test"
   },
   "repository": {
     "type": "git",
