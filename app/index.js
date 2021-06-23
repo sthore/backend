@@ -1,4 +1,5 @@
 const pureHttp = require('pure-http');
+const routes = require('./routes');
 
 const app = pureHttp();
 
@@ -7,6 +8,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/health', ({ res }) =>  res.json({ ok: true }));
+routes.mount(app);
 
 module.exports = app;
