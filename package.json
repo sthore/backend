@@ -4,12 +4,9 @@
   "version": "0.1.1",
   "description": "Quickly projects starts with monolith version",
   "main": "index.js",
-  "scripts": {
-    "start": "node .",
-    "start:dev": "node --watch .",
-    "test": "node --test .",
-    "test:snyk": "snyk test"
-  },
+  "author": "Michael Granados",
+  "license": "MIT",
+  "homepage": "https://github.com/sthore/backend#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sthore/backend.git"
@@ -21,12 +18,15 @@
     "index.js",
     "app/**/*"
   ],
-  "author": "Michael Granados",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sthore/backend/issues"
   },
-  "homepage": "https://github.com/sthore/backend#readme",
+  "scripts": {
+    "start": "node .",
+    "start:dev": "node --watch .",
+    "test": "node --test .",
+    "test:snyk": "snyk test"
+  },
   "dependencies": {
     "hal": "^1.2.0",
     "pure-http": "^4.0.2"
