@@ -1,0 +1,27 @@
+services:
+  database:
+    image: postgres:16
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=sthore
+      - POSTGRES_PASSWORD=sthore
+      - POSTGRES_DB=sthore
+    healthcheck:
+      test: pg_isready -U sthore
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  app:
+    image: node:20
+    user: node
+    command: npm run dev
+    working_dir: /app
+    env_file: .env
+    volumes:
+      - .:/app
+    ports:
+      - '3000:3000'
+    depends_on:
+      database:
+        condition: service_healthy

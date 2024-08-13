@@ -1,14 +1,21 @@
 const pureHttp = require('pure-http')
 const routes = require('./routes')
+const setupDatabase = require('./database')
 
-const app = pureHttp()
+const setup = async (options = {}) => {
+  const app = pureHttp()
 
-app.use((req, res, next) => {
-  req.req = req
-  req.res = res
-  next()
-})
+  app.use((req, res, next) => {
+    req.req = req
+    req.res = res
+    next()
+  })
 
-routes.mount(app)
+  routes.mount(app)
 
-module.exports = app
+  app.set('db', await setupDatabase(options.database))
+
+  return app
+}
+
+module.exports = setup
