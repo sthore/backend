@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node .",
     "start:dev": "node --watch .",
-    "test": "zUnit",
+    "test": "node --test .",
     "test:snyk": "snyk test"
   },
   "repository": {
@@ -32,7 +32,6 @@
   },
   "devDependencies": {
     "snyk": "^1.1292.4",
-    "supertest": "^7.0.0",
-    "zunit": "^4.0.2"
+    "supertest": "^7.0.0"
   }
 }

@@ -1,4 +1,4 @@
-const { describe, it } = require('zunit')
+const { describe, it } = require('node:test')
 const server = require('supertest')
 const app = require('../app')
 
