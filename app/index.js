@@ -4,6 +4,7 @@ const routes = require('./routes')
 const app = pureHttp()
 
 app.use((req, res, next) => {
+  req.req = req
   req.res = res
   next()
 })

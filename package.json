@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/sthore/backend#readme",
   "dependencies": {
+    "hal": "^1.2.0",
     "pure-http": "^4.0.2"
   },
   "devDependencies": {

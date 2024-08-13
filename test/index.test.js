@@ -10,11 +10,22 @@ describe('app', () => {
     .get('/')
     .expect(200)
     .expect(CONTENT_TYPE, MIME_JSON_UTF8)
-    .expect({}))
+    .expect({
+      _links: {
+        self: { href: '/' },
+        health: { href: '/health' },
+      },
+    }))
 
   it('must start a server with health', () => server(app)
     .get('/health')
     .expect(200)
     .expect(CONTENT_TYPE, MIME_JSON_UTF8)
-    .expect({ ok: true }))
+    .expect({
+      ok: true,
+      _links: {
+        self: { href: '/health' },
+        root: { href: '/' },
+      },
+    }))
 })
