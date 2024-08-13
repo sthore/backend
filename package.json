@@ -11,13 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/sthore/backend.git"
   },
-  "keywords": [
-    "store"
-  ],
-  "files": [
-    "index.js",
-    "app/**/*"
-  ],
+  "keywords": ["store"],
+  "files": ["index.js", "app/**/*"],
   "bugs": {
     "url": "https://github.com/sthore/backend/issues"
   },
@@ -25,13 +20,18 @@
     "start": "node .",
     "start:dev": "node --watch .",
     "test": "node --test .",
-    "test:snyk": "snyk test"
+    "test:snyk": "snyk test",
+    "lint": "biome lint",
+    "format": "biome format",
+    "check": "biome check",
+    "check:ci": "biome ci"
   },
   "dependencies": {
     "hal": "^1.2.0",
     "pure-http": "^4.0.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
     "snyk": "^1.1292.4",
     "supertest": "^7.0.0"
   }
