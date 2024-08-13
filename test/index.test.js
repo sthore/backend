@@ -3,7 +3,7 @@ const server = require('supertest')
 const app = require('../app')
 
 const CONTENT_TYPE = 'content-type'
-const MIME_JSON_UTF8 = 'application/json; charset=utf-8'
+const MIME_JSON_UTF8 = 'application/hal+json; charset=utf-8'
 
 describe('app', () => {
   it('must resolve root', () => server(app)
