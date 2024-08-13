@@ -1,3 +1,3 @@
-const health = ({ res }) => res.json({ ok: true });
+const health = ({ res }) => res.json({ ok: true })
 
-module.exports = { health };
+module.exports = { health }
