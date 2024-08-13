@@ -1,3 +1,8 @@
+const root = ({ res }) => res.json({})
+
 const health = ({ res }) => res.json({ ok: true })
 
-module.exports = { health }
+module.exports = {
+  root,
+  health,
+}
