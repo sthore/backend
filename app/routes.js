@@ -6,5 +6,5 @@ const mount = (app) => {
 }
 
 module.exports = {
-  mount
+  mount,
 }
