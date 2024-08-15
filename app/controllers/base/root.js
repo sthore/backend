@@ -1,7 +1,6 @@
 const { Resource } = require('hal')
-const links = require('./links.util')
-
-const HAL_JSON = 'application/hal+json; charset=utf-8'
+const links = require('../links.util')
+const { HAL_JSON } = require('../constants.util')
 
 const root = ({ res }) => {
   const response = new Resource({}, links.root)

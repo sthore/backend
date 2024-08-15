@@ -1,11 +1,8 @@
 const { Resource } = require('hal')
-const links = require('./../links.util')
-
-const HAL_JSON = 'application/hal+json; charset=utf-8'
+const links = require('../links.util')
+const { HAL_JSON, UUID_REGEX } = require('../constants.util')
 
 const fetch = async ({ app, req: { params }, res }) => {
-  const UUID_REGEX =
-    /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i
   if (!UUID_REGEX.test(params.id)) {
     res.status(404).json({})
     return
