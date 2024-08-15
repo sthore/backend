@@ -13,7 +13,7 @@ services:
       timeout: 5s
       retries: 5
   app:
-    image: node:20
+    image: node:22
     user: node
     command: npm run dev
     working_dir: /app
