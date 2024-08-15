@@ -26,6 +26,7 @@ describe('app', () => {
         _links: {
           self: { href: '/' },
           health: { href: '/health' },
+          products: { href: '/api/v1/products' },
         },
       }))
 
