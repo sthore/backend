@@ -21,6 +21,7 @@
     "dev": "node --env-file .env --watch .",
     "test": "node --disable-warning=ExperimentalWarning --experimental-test-snapshots --test",
     "test:update": "npm test -- --test-update-snapshots",
+    "test:cov": "npm test -- --experimental-test-coverage --test-reporter=tap --test-reporter-destination=/dev/stdout --test-reporter=lcov --test-reporter-destination=lcov.info",
     "test:snyk": "snyk test",
     "lint": "biome lint",
     "format": "biome format",

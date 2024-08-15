@@ -28,7 +28,7 @@ jobs:
         node-version: '22.6'
     - uses: actions/checkout@v2
     - run: npm ci
-    - run: npm test
+    - run: npm run test:cov
 
   build:
     needs: [check, test]
