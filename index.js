@@ -6,6 +6,7 @@ const run = async () => {
 
   const app = await setupApp(config.app)
 
+  // await app.get('db').sync()
   app.listen(port, () => console.log(`Listen server on port ${port}`))
 
   return app
