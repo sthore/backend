@@ -1,0 +1,30 @@
+exports[`app > should respond with product list 1`] = `
+{
+  "_links": {
+    "self": {
+      "href": "/api/v1/products"
+    },
+    "root": {
+      "href": "/"
+    }
+  },
+  "_embedded": {
+    "products": [
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v1/products/1"
+          }
+        },
+        "id": 1,
+        "sku": "ABC",
+        "name": "My product",
+        "description": "A simple product from my store",
+        "createdAt": "2024-05-25T09:00:00Z",
+        "updatedAt": "2024-05-25T09:00:00Z",
+        "deletedAt": null
+      }
+    ]
+  }
+}
+`;
