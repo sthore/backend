@@ -1,4 +1,4 @@
-const { health,  root } = require('./base')
+const { health, root } = require('./base')
 const products = require('./products')
 
 module.exports = {

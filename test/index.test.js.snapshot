@@ -1,3 +1,23 @@
+exports[`app > should respond with one product 1`] = `
+{
+  "_links": {
+    "self": {
+      "href": "/api/v1/products/7fbc190c-192b-4042-9f01-3b31706d20f7"
+    },
+    "products": {
+      "href": "/api/v1/products"
+    }
+  },
+  "id": "7fbc190c-192b-4042-9f01-3b31706d20f7",
+  "sku": "ABC",
+  "name": "My product",
+  "description": "A simple product from my store",
+  "createdAt": "2024-05-25T09:00:00Z",
+  "updatedAt": "2024-05-25T09:00:00Z",
+  "deletedAt": null
+}
+`;
+
 exports[`app > should respond with product list 1`] = `
 {
   "_links": {

@@ -44,28 +44,55 @@ describe('app', () => {
       }))
 
   it('should respond with product list', async (t) => {
-    const findAllMock = t.mock.method(
-      app.get('db').model('products'),
-      'findAll',
-      () => [
-        {
+    t.mock.method(app.get('db').model('products'), 'findAll', () => [
+      {
+        id: 1,
+        toJSON: () => ({
           id: 1,
-          toJSON: () => ({
-            id: 1,
-            sku: 'ABC',
-            name: 'My product',
-            description: 'A simple product from my store',
-            createdAt: '2024-05-25T09:00:00Z',
-            updatedAt: '2024-05-25T09:00:00Z',
-            deletedAt: null,
-          }),
-        },
-      ],
-    )
+          sku: 'ABC',
+          name: 'My product',
+          description: 'A simple product from my store',
+          createdAt: '2024-05-25T09:00:00Z',
+          updatedAt: '2024-05-25T09:00:00Z',
+          deletedAt: null,
+        }),
+      },
+    ])
     await server(app)
       .get('/api/v1/products')
       .expect(200)
       .expect(CONTENT_TYPE, MIME_HAL_JSON_UTF8)
       .expect((res) => t.assert.snapshot(res.body))
+  })
+
+  it('should respond with one product', async (t) => {
+    const uuid = '7fbc190c-192b-4042-9f01-3b31706d20f7'
+    t.mock.method(app.get('db').model('products'), 'findByPk', () => ({
+      id: uuid,
+      toJSON: () => ({
+        id: uuid,
+        sku: 'ABC',
+        name: 'My product',
+        description: 'A simple product from my store',
+        createdAt: '2024-05-25T09:00:00Z',
+        updatedAt: '2024-05-25T09:00:00Z',
+        deletedAt: null,
+      }),
+    }))
+    await server(app)
+      .get(`/api/v1/products/${uuid}`)
+      .expect(200)
+      .expect(CONTENT_TYPE, MIME_HAL_JSON_UTF8)
+      .expect((res) => t.assert.snapshot(res.body))
+  })
+
+  it('should respond with 404 when no uuid on param', async () => {
+    await server(app).get('/api/v1/products/no-uuid').expect(404)
+  })
+
+  it('should respond with 404 when resource not found', async (t) => {
+    const uuid = '7fbc190c-192b-4042-9f01-3b31706d20f7'
+    t.mock.method(app.get('db').model('products'), 'findByPk', () => null)
+    await server(app).get(`/api/v1/products/${uuid}`).expect(404)
   })
 })
