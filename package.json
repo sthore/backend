@@ -19,7 +19,8 @@
   "scripts": {
     "start": "node .",
     "dev": "node --env-file .env --watch .",
-    "test": "node --test ./test",
+    "test": "node --disable-warning=ExperimentalWarning --experimental-test-snapshots --test",
+    "test:update": "npm test -- --test-update-snapshots",
     "test:snyk": "snyk test",
     "lint": "biome lint",
     "format": "biome format",
